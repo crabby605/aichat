@@ -1,17 +1,74 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Generative AI Integration</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
 <body>
-  <!-- ... Your HTML and CSS -->
-  <!-- Import @google/generative-ai, as shown above. -->
-  <script type="module">
-      import { GoogleGenerativeAI } from "@google/generative-ai";
+    <div class="container">
+        <h1>Google Generative AI Integration</h1>
+        <p>Integrate Google's generative AI capabilities into your web applications.</p>
+        <!-- Import @google/generative-ai -->
+        <script type="module">
+            import { GoogleGenerativeAI } from "@google/generative-ai";
 
-      // Fetch your API_KEY
-      const API_KEY = "...";
+          
+            const API_KEY = "KEY";
 
-      // Access your API key (see "Set up your API key" above)
-      const genAI = new GoogleGenerativeAI(API_KEY);
+            
+            const genAI = new GoogleGenerativeAI(API_KEY);
 
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
-  </script>
+          
+            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+          
+            console.log("Crabby Generative AI model loaded:", model);
+        </script>
+    </div>
 </body>
 </html>
+
