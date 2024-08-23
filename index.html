@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Generative AI Integration</title>
+    <title>Crabby's Generative Model Integration</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
     <style>
         body {
@@ -41,34 +41,73 @@
             font-weight: 400;
         }
 
-        code {
-            background-color: #f4f4f4;
-            padding: 5px 10px;
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
             border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .response {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Google Generative AI Integration</h1>
-        <p>Integrate Google's generative AI capabilities into your web applications.</p>
+        <h1>Crabby's Generative Model</h1>
+        <p>Integrate Crabby's fine-tuned generative AI model into your web applications.</p>
+
+        <!-- Input field for user prompt -->
+        <input type="text" id="userPrompt" placeholder="Enter your prompt here..." />
+
+        <!-- Button to send the request -->
+        <button onclick="sendRequest()">Generate Response</button>
+
+        <!-- Placeholder for AI response -->
+        <div class="response" id="response"></div>
+
         <!-- Import @google/generative-ai -->
         <script type="module">
             import { GoogleGenerativeAI } from "@google/generative-ai";
 
-          
-            const API_KEY = "KEY";
-
-            
+            const API_KEY = "YOUR_API_KEY_HERE";
             const genAI = new GoogleGenerativeAI(API_KEY);
+            const model = genAI.getGenerativeModel({ model: "crabby-gen-model" });
 
-          
-            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+            // Function to handle sending the request
+            async function sendRequest() {
+                const userPrompt = document.getElementById('userPrompt').value;
 
-          
-            console.log("Crabby Generative AI model loaded:", model);
+                if (userPrompt) {
+                    // Simulate the AI response
+                    const response = await model.generateText(userPrompt);
+
+                    // Display the response in the response div
+                    document.getElementById('response').innerText = `AI Response: ${response.generated_text}`;
+                } else {
+                    alert('Please enter a prompt.');
+                }
+            }
         </script>
     </div>
 </body>
 </html>
-
